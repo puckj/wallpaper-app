@@ -18,8 +18,17 @@ export const urlFor = (source: SanityImageSource) => {
 };
 
 export const getCategory = async () => {
-  const items = await client
+  const categories = await client
     .fetch('*[_type =="category"]')
+    .then((data) => shuffleArray(data));
+  return categories;
+};
+
+export const getCategoryItemsById = async (categoryId: string) => {
+  const items = await client
+    .fetch(`*[_type =="item" && $categoryId in category[]->_id]`, {
+      categoryId,
+    })
     .then((data) => shuffleArray(data));
   return items;
 };

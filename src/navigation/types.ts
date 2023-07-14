@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 export type RootStackParamList = {
   OnBoardingScreen: undefined;
   HomeScreen: undefined;
+  ItemsScreen: { itemId: string };
   ItemScreen: { itemId: number };
 };
 
@@ -12,4 +13,5 @@ export type RootStackNavigationProp = NativeStackNavigationProp<
   keyof RootStackParamList
 >; // for useNavigation in RootStackNavigator
 
+export type ItemsScreenRouteProp = RouteProp<RootStackParamList, "ItemsScreen">; // for useRoute() on ItemsScreen.tsx
 export type ItemScreenRouteProp = RouteProp<RootStackParamList, "ItemScreen">; // for useRoute() on ItemScreen.tsx

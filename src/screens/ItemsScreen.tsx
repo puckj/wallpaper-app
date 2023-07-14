@@ -1,27 +1,32 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   ScrollView,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { useEffect, useState } from "react";
+import { ItemsScreenRouteProp } from "../navigation/types";
+import { useRoute } from "@react-navigation/native";
+import { getCategoryItemsById } from "../services/sanity";
 import { Entypo } from "@expo/vector-icons";
-import { useEffect, useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 import MasonryLayout from "../components/MasonryLayout";
-import { getCategory } from "../services/sanity";
 
-const HomeScreen = () => {
-  const [categories, setCategories] = useState(null);
+const ItemsScreen = () => {
+  const { params } = useRoute<ItemsScreenRouteProp>();
+  const [items, setItems] = useState(null);
   useEffect(() => {
-    getCategory()
+    getCategoryItemsById(params.itemId)
       .then((data) => {
-        // console.log(data);
-        setCategories(data);
+        console.log(data);
+        setItems(data);
       })
       .catch((err) => {
-        alert(err);
-        console.error("error from getCategory() [HomeScreen.tsx] >> ", err);
+        console.error(
+          "error from getCategoryItemsById() [ItemsScreen.tsx] >> ",
+          err
+        );
       });
   }, []);
 
@@ -37,8 +42,8 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
         <ScrollView className="w-full h-full px-4">
-          {categories ? (
-            <MasonryLayout data={categories} screen="ItemsScreen" />
+          {items ? (
+            <MasonryLayout data={items} screen="ItemScreen" />
           ) : (
             <>
               <ActivityIndicator color="#ff0000" size="large" />
@@ -50,4 +55,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default ItemsScreen;
