@@ -4,8 +4,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 export type RootStackParamList = {
   OnBoardingScreen: undefined;
   HomeScreen: undefined;
-  ItemsScreen: { itemId: string };
-  ItemScreen: { itemId: number };
+  ItemsScreen: { itemId: string; itemName: string };
+  ItemScreen: { itemId: string };
 };
 
 export type RootStackNavigationProp = NativeStackNavigationProp<

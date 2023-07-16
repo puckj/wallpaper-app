@@ -6,20 +6,23 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { ItemsScreenRouteProp } from "../navigation/types";
-import { useRoute } from "@react-navigation/native";
+import {
+  ItemsScreenRouteProp,
+  RootStackNavigationProp,
+} from "../navigation/types";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { getCategoryItemsById } from "../services/sanity";
-import { Entypo } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MasonryLayout from "../components/MasonryLayout";
 
 const ItemsScreen = () => {
   const { params } = useRoute<ItemsScreenRouteProp>();
+  const navigation = useNavigation<RootStackNavigationProp>();
   const [items, setItems] = useState(null);
   useEffect(() => {
     getCategoryItemsById(params.itemId)
       .then((data) => {
-        console.log(data);
         setItems(data);
       })
       .catch((err) => {
@@ -34,12 +37,12 @@ const ItemsScreen = () => {
     <View className="flex-1 items-center justify-center bg-[#04020d] relative">
       <SafeAreaView className="flex w-full h-full items-center justify-start gap-4">
         <View className="w-full px-6 flex-row items-center justify-between">
-          <Text className="text-2xl text-gray-50 font-semibold">
-            4K Wallpaper
-          </Text>
-          <TouchableOpacity>
-            <Entypo name="dots-three-vertical" size={24} color="white" />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back" size={32} color="white" />
           </TouchableOpacity>
+          <Text className="text-2xl text-gray-50 font-semibold">
+            {params.itemName}
+          </Text>
         </View>
         <ScrollView className="w-full h-full px-4">
           {items ? (

@@ -32,3 +32,12 @@ export const getCategoryItemsById = async (categoryId: string) => {
     .then((data) => shuffleArray(data));
   return items;
 };
+
+export const getItemById = async (itemId: string) => {
+  const items = await client
+    .fetch(`*[_type == 'item' && _id == $itemId ][0]`, {
+      itemId,
+    })
+    .then((data) => data);
+  return items;
+};
