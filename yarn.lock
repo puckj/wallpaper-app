@@ -3424,6 +3424,11 @@ expo-keep-awake@~12.0.1:
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-12.0.1.tgz#19c5ab55391394ded3f6c262b0707c7140658a11"
   integrity sha512-hqeCnb4033TyuZaXs93zTK7rjVJ3bywXATyMmKmKkLEsH2PKBAl/VmjlCOPQL/2Ncqz6aj7Wo//tjeJTARBD4g==
 
+expo-media-library@~15.2.3:
+  version "15.2.3"
+  resolved "https://registry.yarnpkg.com/expo-media-library/-/expo-media-library-15.2.3.tgz#188f3c77f58b354f0ea6250f6756ac1e1a226291"
+  integrity sha512-Oz8b8Xsvfj7YcutUBtI84NUIqSnt7iCM5HZ5DyKoWKKiDK/+aUuj3RXNQELG8jUw6pQPgEwgbZ1+J8SdH/y9jw==
+
 expo-modules-autolinking@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/expo-modules-autolinking/-/expo-modules-autolinking-1.2.0.tgz#3ead115510a43fe196fc0498586b6133bd573209"
@@ -5322,6 +5327,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 ms@2.0.0:
   version "2.0.0"
